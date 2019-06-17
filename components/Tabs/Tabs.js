@@ -28,23 +28,28 @@ class TabLink {
   selectTab = () =>{
 
     // Select all elements with the .tab class on them
-    const tabs = document.querySelectorAll(".tab");
-    console.log("Select Tab is working");
+    const tabs = document.querySelectorAll(".tab")
+    console.log("Select Tab is working")
     // Iterate through the NodeList removing the .active-tab class from each element
-    // tabs.forEach()
+    // tabs.forEach(tab => {
+    //   tab.classList.remove('active-tab');
+    // })
 
-    for(let tab of tabs){
+    for(const tab of tabs){
       tab.classList.remove("active-tab");
     }
 
     // Select all of the elements with the .card class on them
     const cards = document.querySelectorAll(".card");
     // Iterate through the NodeList setting the display style each one to 'none'
-    // cards.forEach()
+
+    // cards.forEach(card => {
+    //   card.setAttribute("display", "none");
+    // })
     
 
-    for(let card of cards){
-      card.setAttribute("display", "none");
+    for(const card of cards){
+      card.style.display = "none";
     }
     
     // Add a class of ".active-tab" to this.tabElement
@@ -64,7 +69,7 @@ class TabCard {
   }
   selectCard(){
     // Update the style of this.cardElement to display = "flex"
-    this.cardElement.setAttribute("display", "flex");
+    this.cardElement.style.display = "flex";
     console.log("Select Card method is working");
   }
 
