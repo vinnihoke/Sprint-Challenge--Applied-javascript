@@ -5,7 +5,7 @@ class Carousel {
 		this.rightButton = document.querySelector(".right-button");
 		this.images = document.querySelectorAll(".carousel img");
 		this.images = Array.from(this.images);
-		this.index = 0
+		this.index = 0;
 
 		this.leftButton.addEventListener("click", (e) => {
 			this.advanceCarousel(-1);
@@ -16,16 +16,17 @@ class Carousel {
 	}
 	advanceCarousel = (value) => {
 		//Takes in the current index of the item containing "display: flex" style in the carousel.
+		for(const image of this.images){
+			image.style.display = "none";
+		}
 
-		this.index < this.images.length - 1 
-		? this.index += value 
-		: this.index += value
-
-		console.log(this.index);
+		this.index += value;
+		if(this.index > this.images.length - 1) this.index = 0;
+		else if(this.index < 0) this.index = this.images.length -1;
 
 		//Removes the "display: flex" from the current index
-
-		//Increments over the array taking in the "value"
+		this.images[this.index].style.display = "flex"
+		
 
 		//Adds "display: flex" back to the new index
 
